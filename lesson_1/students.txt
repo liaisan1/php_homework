@@ -1,0 +1,3 @@
+Leisan;4,5,5
+Daria;3,3,4
+Vova;5,5,5
