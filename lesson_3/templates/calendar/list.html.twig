@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Календарь{% endblock %}
+
+{% block body %}
+
+<h1>Календарь</h1>
+
+{% for day in daysList %}
+
+    {{ day.number }} - {{ day.name }}<br>
+
+{% endfor %}
+
+{% endblock %}
