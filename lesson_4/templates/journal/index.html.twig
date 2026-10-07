@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Электронный журнал</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .add-student {
+            margin-bottom: 30px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #eeeeee;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .grade {
+            display: inline-block;
+            background-color: #eeeeee;
+            padding: 5px 8px;
+            margin: 2px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Электронный журнал</h1>
+
+    <div class="add-student">
+        <h2>Добавить студента</h2>
+
+        <form method="POST" action="/student/add">
+            <input
+                type="text"
+                name="name"
+                placeholder="Имя студента"
+                required
+            >
+
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>Студент</th>
+            <th>Оценки</th>
+            <th>Новая оценка</th>
+        </tr>
+
+        {% for student in students %}
+            <tr>
+                <td>
+                    {{ student.name }}
+                </td>
+
+                <td>
+                    {% for grade in grades[student.id] %}
+                        <span class="grade">
+                            {{ grade.value }}
+                        </span>
+                    {% else %}
+                        Нет оценок
+                    {% endfor %}
+                </td>
+
+                <td>
+                    <form method="POST" action="/grade/add/{{ student.id }}">
+                        <input
+                            type="number"
+                            name="grade"
+                            min="1"
+                            max="5"
+                            required
+                        >
+
+                        <button type="submit">
+                            Отправить
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
