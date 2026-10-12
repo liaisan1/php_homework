@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../vendor/symfony/dependency-injection/Loader/schema/services.schema.json
+
+parameters:
+    sender_email: 'admin@example.com'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+
+    App\Service\EmailService:
+        arguments:
+            $senderEmail: '%sender_email%'
+            $projectDir: '%kernel.project_dir%'
