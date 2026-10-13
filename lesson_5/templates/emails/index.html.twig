@@ -36,7 +36,7 @@
 
         input {
             padding: 10px;
-            margin: 5px 5px 5px 0;
+            margin: 5px 5px 0 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -69,25 +69,21 @@
 
     <form method="POST" action="/emails/create">
 
-        <div class="user">
-            <h3>Пользователь 1</h3>
+        <div id="users">
 
-            <input type="text" name="names[]" placeholder="Имя" required>
-            <input type="email" name="emails[]" placeholder="Email" required>
+            <div class="user">
+                <h3>Пользователь 1</h3>
+
+                <input type="text" name="names[]" placeholder="Имя" required>
+                <input type="email" name="emails[]" placeholder="Email" required>
+            </div>
+
         </div>
 
-        <div class="user">
-            <h3>Пользователь 2</h3>
-
-            <input type="text" name="names[]" placeholder="Имя" required>
-            <input type="email" name="emails[]" placeholder="Email" required>
-        </div>
-
-        <div class="user">
-            <h3>Пользователь 3</h3>
-
-            <input type="text" name="names[]" placeholder="Имя" required>
-            <input type="email" name="emails[]" placeholder="Email" required>
+        <div class="button">
+            <button type="button" onclick="addUser()">
+                + Добавить пользователя
+            </button>
         </div>
 
         <div class="button">
@@ -97,6 +93,23 @@
     </form>
 
 </div>
+
+<script>
+    let count = 1;
+
+    function addUser() {
+        count++;
+
+        document.getElementById('users').insertAdjacentHTML('beforeend', `
+            <div class="user">
+                <h3>Пользователь ${count}</h3>
+
+                <input type="text" name="names[]" placeholder="Имя" required>
+                <input type="email" name="emails[]" placeholder="Email" required>
+            </div>
+        `);
+    }
+</script>
 
 </body>
 </html>
