@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Каталог рецептов{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Каталог рецептов</h1>
+        <p>Здесь собраны рецепты различных блюд</p>
+
+        <h2>Все рецепты</h2>
+
+        {% for recipe in recipes %}
+            <div class="recipe-card">
+                <h3>
+                    <a href="{{ path('recipe_show', {id: recipe.id}) }}">
+                        {{ recipe.title }}
+                    </a>
+                </h3>
+
+                <p>{{ recipe.description }}</p>
+            </div>
+        {% else %}
+            <p>Рецептов пока нет</p>
+        {% endfor %}
+    </div>
+{% endblock %}

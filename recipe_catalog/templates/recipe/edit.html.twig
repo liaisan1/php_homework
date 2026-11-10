@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать рецепт{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Редактировать рецепт</h1>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+        <a class="back-link" href="{{ path('recipe_show', {id: recipe.id}) }}">
+            Вернуться к рецепту
+        </a>
+    </div>
+{% endblock %}

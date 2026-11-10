@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="recipe-details">
+            <h1>{{ recipe.title }}</h1>
+
+            <p>{{ recipe.description }}</p>
+
+            <h2>Ингредиенты</h2>
+            <p>{{ recipe.ingredients }}</p>
+
+            <h2>Способ приготовления</h2>
+            <p>{{ recipe.instructions }}</p>
+
+            <h2>Категория</h2>
+            <p>{{ recipe.category.name }}</p>
+
+            <h2>Автор</h2>
+            <p>{{ recipe.author.name }}</p>
+
+            <a class="add-button" href="{{ path('recipe_edit', {id: recipe.id}) }}">
+                Редактировать рецепт
+            </a>
+
+            <form
+                action="{{ path('recipe_delete', {id: recipe.id}) }}"
+                method="post"
+                onsubmit="return confirm('Удалить этот рецепт?')"
+            >
+                <input
+                    type="hidden"
+                    name="_token"
+                    value="{{ csrf_token('delete_recipe_' ~ recipe.id) }}"
+                >
+
+                <button type="submit" class="delete-button">
+                    Удалить рецепт
+                </button>
+            </form>
+
+            <a class="back-link" href="{{ path('recipe_index') }}">
+                Вернуться к списку рецептов
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Добавить рецепт{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Добавить рецепт</h1>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+        <a class="back-link" href="{{ path('recipe_index') }}">
+            Вернуться к списку рецептов
+        </a>
+    </div>
+{% endblock %}
