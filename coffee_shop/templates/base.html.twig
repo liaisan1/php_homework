@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ 'site.name'|trans }}{% endblock %}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>{{ 'site.name'|trans }}</h1>
+
+        <nav>
+            <a href="{{ path('home') }}">{{ 'nav.home'|trans }}</a>
+            <a href="{{ path('menu') }}">{{ 'nav.menu'|trans }}</a>
+            <a href="{{ path('about') }}">{{ 'nav.about'|trans }}</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>{{ 'site.name'|trans }}</p>
+    </footer>
+
+</body>
+</html>

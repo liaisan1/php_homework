@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'nav.menu'|trans }}{% endblock %}
+
+{% block body %}
+    <h2>{{ 'menu.title'|trans }}</h2>
+
+    <ul>
+        <li>{{ 'menu.espresso'|trans }}</li>
+        <li>{{ 'menu.americano'|trans }}</li>
+        <li>{{ 'menu.cappuccino'|trans }}</li>
+        <li>{{ 'menu.latte'|trans }}</li>
+        <li>{{ 'menu.chocolate'|trans }}</li>
+        <li>{{ 'menu.cheesecake'|trans }}</li>
+        <li>{{ 'menu.croissant'|trans }}</li>
+    </ul>
+{% endblock %}

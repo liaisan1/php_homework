@@ -1,0 +1,26 @@
+site:
+    name: Coffee House
+
+nav:
+    home: Home
+    menu: Menu
+    about: About us
+
+home:
+    title: Welcome to Coffee House!
+    description: Aromatic coffee, fresh pastries and a cozy atmosphere — everything you need for a great day. Stop by for a cup of your favorite coffee.
+
+menu:
+    title: Coffee and desserts
+    espresso: Espresso — 150 ₽
+    americano: Americano — 200 ₽
+    cappuccino: Cappuccino — 300 ₽
+    latte: Latte — 300 ₽
+    chocolate: Hot chocolate — 280 ₽
+    cheesecake: Cheesecake — 250 ₽
+    croissant: Croissant — 200 ₽
+
+about:
+    title: Our story
+    description: Coffee House is a small, cozy coffee shop created with a love for coffee. We value quality, a welcoming atmosphere and care for every guest.
+    text: Our coffee shop is the perfect place to meet friends, relax and enjoy a slow morning.
